@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import BlogIndex from './BlogIndex.vue';
+import HomeIndex from './HomeIndex.vue';
 
 const routes:Array<RouteRecordRaw> = [{
     path:'',
-    component: BlogIndex
+    component: HomeIndex
 }];
 const router = createRouter({ routes, history: createWebHistory() });
 export default router;

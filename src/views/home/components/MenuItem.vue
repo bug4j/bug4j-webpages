@@ -1,23 +1,15 @@
 <template>
     <li>
-        <template v-if="item.children?.length">
-            <a href="javascript:void">{{ item?.title }}</a>
-            <SubMenu :items="item.children"></SubMenu>
-        </template>
-        <template v-else>
-            <RouterLink v-if="item?.type === MenuActionType.ROUTER" tag="a" :to="item.action"></RouterLink>
-            <a :href="item?.action" v-else
-                :target="MenuActionType.LINK === item?.type ? '_self' : '_blank'">{{ item?.title }}</a>
-        </template>
+        <a :href="item?.action" v-if="MenuActionType.LINK === item?.type"
+            target="_blank">{{ item?.title }}</a>
+        <RouterLink v-else tag="a" :to="item.action">{{ item?.title }}</RouterLink>
+        <SubMenu v-if="item?.children?.length" :items="item?.children"></SubMenu>
     </li>
 </template>
-<script lang="ts" setup>
-    import MenuItem from '@/entity/MenuItem';
-    import { MenuActionType } from '@/entity/MenuItem';
-    import { RouterLink } from 'vue-router';
-    import { defineProps } from 'vue';
-    import SubMenu from './SubMenu.vue';
-    defineProps({
-        item: MenuItem
-    })
+<script setup lang="tsx">
+import { RouterLink } from 'vue-router';
+import { MenuItemType, MenuActionType } from '@/entity/MenuTypes';
+import { defineAsyncComponent, defineComponent, PropType, reactive } from 'vue';
+const SubMenu = defineAsyncComponent(() => import('./SubMenu.vue')) as any;
+defineProps<{ item: MenuItemType }>();
 </script>

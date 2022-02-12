@@ -1,5 +1,5 @@
 <template>
-    <header id="sticky-header" class="header-fixed header-transparent">
+    <header ref="headerRef" id="sticky-header" class="header-fixed header-transparent">
         <div class="header-area">
             <div class="container sm-100">
                 <div class="row">
@@ -7,66 +7,8 @@
                         <HeaderLogo />
                     </div>
                     <div class="col-md-9 col-sm-10">
-                        <div class="menu-area hidden-xs">
-                            <Menu :items="menuItems" />
-                        </div>
-                        <!-- basic-mobile-menu -->
-                        <div class="basic-mobile-menu visible-xs">
-                            <nav id="mobile-nav">
-                                <ul>
-                                    <li>
-                                        <a>Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="about.html">about</a>
-                                    </li>
-                                    <!-- PORTFOLIO -->
-                                    <li>
-                                        <a href="portfolio-grid-3-cols.html">Portfolio</a>
-                                    </li>
-                                    <!-- END PORTFOLIO -->
-                                    <li>
-                                        <a href="service.html">Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pages</a>
-                                        <ul>
-                                            <li>
-                                                <a href="about.html">About Us</a>
-                                            </li>
-                                            <li>
-                                                <a href="service.html">Service</a>
-                                            </li>
-                                            <li>
-                                                <a href="pricing.html">Pricing</a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact</a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html">404 Page</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!-- BLOG -->
-                                    <li>
-                                        <a href="blog-grid-3-col.html">Blog</a>
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    Single Post
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!-- END BLOG -->
-                                    <li>
-                                        <a href="contact.html">Contact</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <Menu :items="menuItems" />
+                        <MobileMenu :items="menuItems"></MobileMenu>
                     </div>
                 </div>
             </div>
@@ -75,11 +17,21 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import HeaderLogo from '@/views/home/components/HeaderLogo.vue';
 import Menu from './Menu.vue';
 import menus from '../Menus';
+import MobileMenu from './MobileMenu.vue';
 const menuItems = reactive(menus);
+const headerRef = ref<HTMLElement>(null as unknown as HTMLElement);
+window.addEventListener("scroll", e => {
+    console.log(e)
+    if(window.scrollY > 1) {
+        !headerRef.value.classList.contains('sticky') && headerRef.value.classList.add('sticky');
+    } else {
+        headerRef.value.classList.remove('sticky');
+    }
+});
 </script>
 
 <style lang="less">

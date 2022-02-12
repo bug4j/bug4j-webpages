@@ -105,7 +105,6 @@
 
   $(".slider-active").owlCarousel({
     loop: true,
-
     navText: [
       '<i class="ion-chevron-left"></i>',
       '<i class="ion-chevron-right"></i>',
@@ -196,7 +195,6 @@
 
   $(".blog-slider").owlCarousel({
     loop: true,
-
     navText: [
       '<i class="ion-chevron-left"></i>',
       '<i class="ion-chevron-right"></i>',

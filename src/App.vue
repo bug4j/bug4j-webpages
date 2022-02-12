@@ -14,7 +14,6 @@
   @import '/public/css/et-line-fonts.css';
   @import '/public/css/ionicons.min.css';
   @import '/public/css/magnific-popup.css';
-  @import '/public/css/meanmenu.css';
   @import '/public/css/global.css';
   @import '/public/css/style.css';
   @import '/public/css/responsive.css';

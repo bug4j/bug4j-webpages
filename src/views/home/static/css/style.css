@@ -326,11 +326,11 @@ label {
 /* bg img part */
 
 .bg-1 {
-  background: url(../image/bg-1.jpg);
+  background: url(/images/home/bg-1.jpg);
 }
 
 .bg-2 {
-  background: url(../image/bg-2.jpg);
+  background: url(/images/home/bg-2.jpg);
 }
 
 .bg-3 {
@@ -342,7 +342,7 @@ label {
 }
 
 .bg-5 {
-  background: url(../image/15.jpg);
+  background: url(/images/home/15.jpg);
 }
 
 .bg-6 {
@@ -965,7 +965,7 @@ nav.nav-menu-show {
 }
 
 .slide-6 {
-  background: rgba(0, 0, 0, 0) url("../image/15.jpg") repeat scroll right top /
+  background: rgba(0, 0, 0, 0) url("/images/home/15.jpg") repeat scroll right top /
     cover;
 }
 

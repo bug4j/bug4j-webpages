@@ -326,15 +326,15 @@ label {
 /* bg img part */
 
 .bg-1 {
-  background: url(../images/bg-1.jpg);
+  background: url(/images/home/bg-1.jpg);
 }
 
 .bg-2 {
-  background: url(../images/bg-2.jpg);
+  background: url(/images/home/bg-2.jpg);
 }
 
 .bg-5 {
-  background: url(../images/15.jpg);
+  background: url(/images/home/15.jpg);
 }
 
 .color-white {
@@ -923,7 +923,7 @@ nav.nav-menu-show {
 }
 
 .slide-6 {
-  background: rgba(0, 0, 0, 0) url("../images/15.jpg") repeat scroll right top /
+  background: rgba(0, 0, 0, 0) url("/images/home/15.jpg") repeat scroll right top /
     cover;
 }
 
@@ -1001,6 +1001,8 @@ nav.nav-menu-show {
   font-weight: 400;
 
   letter-spacing: 5px;
+
+  line-height: 2;
 }
 
 .slider-content.text-white.black-bg-opacity::before {

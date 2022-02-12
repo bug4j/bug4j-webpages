@@ -19,7 +19,7 @@
             height: 100%;
         }
         &.slide-6 {
-            background: rgba(0, 0, 0, 0) url('@/../samples/home/static/image/image/15.jpg') repeat scroll right top cover;
+            background: rgba(0, 0, 0, 0) url('/home/images/15.jpg') repeat scroll right top cover;
         }
     }
 </style>

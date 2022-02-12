@@ -26,15 +26,7 @@
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
-const headerRef = ref<Element>(null as unknown as Element);
-onMounted(() => {
-    const io = new IntersectionObserver(([e]) => {
-        console.log(e);
-        e.boundingClientRect.top < -80 && !headerRef.value.classList.contains('fixed') && headerRef.value.classList.add('fixed');
-        e.boundingClientRect.top > -80 && headerRef.value.classList.remove('fixed')
-    });
-    io.observe(headerRef.value);
-})
+
 </script>
 <style lang="less" scoped>
     header {

@@ -1,15 +1,22 @@
 <template>
-    <ul :class="{ 'basic-menu': isRoot, 'clearfix': true }" >
-        <MenuItemComponent v-for="item in items" :key="item.action" :item="item"></MenuItemComponent>
+    <ul :class="{ open: open, clearfix: true }">
+        <slot>
+            <MenuItem v-for="item in items" :key="item.title" :item="item"></MenuItem>
+        </slot>
     </ul>
 </template>
 <script setup lang="ts">
-    import MenuItemComponent from './MenuItem.vue';
-    import MenuItem from '@/entity/MenuItem';
-    const { isRoot, items } = withDefaults(defineProps({
-        items: MenuItem,
-        isRoot: Boolean
-    }), {
-        isRoot: false,
-    })
+    import MenuItem from './MenuItem.vue';
+    import { MenuItemType } from '@/entity/MenuTypes';
+    defineProps<{ items?: MenuItemType[], open?:boolean }>();
 </script>
+<style scoped>
+    @media (max-width: 768px) {
+        ul {
+            display: none;
+        }
+        ul.open {
+            display: block;
+        }
+    }
+</style>

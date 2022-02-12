@@ -26,6 +26,7 @@ process.env.NODE_ENV !== 'production' && plugins.push(copy({
 
 export default defineConfig({
   plugins,
+  publicDir: './public',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

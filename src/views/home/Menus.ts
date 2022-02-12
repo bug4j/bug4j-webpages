@@ -1,5 +1,5 @@
-import MenuItem, { MenuActionType } from '../../entity/MenuItem';
-const menus:MenuItem[] = [
+import { MenuItemType,MenuActionType } from '../../entity/MenuTypes';
+const menus:MenuItemType[] = [
     {
         title: '首页',
         action: '/',

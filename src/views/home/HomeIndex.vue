@@ -1,6 +1,6 @@
 <template>
   <div class="home-index">
-		<Header />
+		<Header></Header>
 		<BasicSlider />
 		<Portfolio />
 		<BlogListSimple />

@@ -1,12 +1,14 @@
 <template>
     <div class="menu-area hidden-xs">
         <nav>
-            <SubMenu :items="items" isRoot />
+            <SubMenu :items="items" class="basic-menu" />
         </nav>
     </div>
 </template>
 <script setup lang="ts">
 import SubMenu from './SubMenu.vue';
-import MenuItem from '@/entity/MenuItem';
-const { items } = defineProps<{ items: MenuItem[] }>();
+import { MenuItemType } from '@/entity/MenuTypes';
+const { items } = defineProps<{ items: MenuItemType[] }>();
 </script>
+<style> 
+</style>

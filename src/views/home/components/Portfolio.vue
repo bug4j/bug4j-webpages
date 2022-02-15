@@ -1,6 +1,10 @@
 <template>
     <div class="basic-portfolio-area ptb-90">
 		<div class="container">
+			<div class="mb-20 area-title text-center" style="margin-bottom: 16px">
+				<h2>摄影动态</h2>
+				<p></p>
+			</div>
 			<div class="filter-menu text-center mb-40">
 				<button data-filter="*" @click="filterGrid('*')">所有</button>
 				<button data-filter=".branding" @click="filterGrid('.branding')">风景</button>
@@ -173,6 +177,7 @@
 	import Isotope from 'isotope-layout';
 	import imagesLoaded from 'imagesloaded'
 	import { ref, onMounted } from 'vue';
+	import AreaTitle from './AreaTitle.vue';
 	const grid = ref<HTMLElement>(null as unknown as HTMLElement);
 	let isoGrid:Isotope = null as unknown as Isotope;
 	function filterGrid(key:string) {

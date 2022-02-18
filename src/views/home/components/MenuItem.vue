@@ -1,15 +1,16 @@
 <template>
     <li>
-        <a :href="item?.action" v-if="MenuActionType.LINK === item?.type"
-            target="_blank">{{ item?.title }}</a>
-        <RouterLink v-else tag="a" :to="item.action">{{ item?.title }}</RouterLink>
-        <SubMenu v-if="item?.children?.length" :items="item?.children"></SubMenu>
+        <a :href="item.action" @click.prevent.stop="menuClicked(item)">{{ item?.title }}</a>
+        <SubMenu v-if="item?.children?.length" :items="item?.children" @itemClicked="menuClicked"></SubMenu>
     </li>
 </template>
 <script setup lang="tsx">
-import { RouterLink } from 'vue-router';
-import { MenuItemType, MenuActionType } from '@/entity/MenuTypes';
-import { defineAsyncComponent, defineComponent, PropType, reactive } from 'vue';
+import { MenuItemType } from '@/entity/MenuTypes';
+import { defineAsyncComponent, defineEmits } from 'vue';
 const SubMenu = defineAsyncComponent(() => import('./SubMenu.vue')) as any;
 defineProps<{ item: MenuItemType }>();
+const emits = defineEmits(['itemClicked']);
+function menuClicked(item:MenuItemType) {
+    emits('itemClicked', item);
+}
 </script>

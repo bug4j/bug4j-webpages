@@ -3,7 +3,7 @@
         <div class="basic-footer text-center ptb-90">
             <div class="container">
                 <div class="footer-logo mb-30">
-                    <h3><a href="">White</a></h3>
+                    <h3><a href="">BUG4J</a></h3>
                 </div>
                 <div class="social-icon">
                     <a href="#"><i class="ion-social-facebook"></i></a>
@@ -14,11 +14,7 @@
                 <div class="footer-menu mt-30">
                     <nav>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li v-for="menu in navMenus" :key="menu.action"><a href="#">{{ menu.title }}</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -29,3 +25,8 @@
         </div>
     </footer>
 </template>
+<script setup lang="ts">
+import menus from '../Menus';
+import { reactive } from 'vue';
+const navMenus = reactive(menus);
+</script>

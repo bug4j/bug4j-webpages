@@ -13,8 +13,8 @@ import { defineAsyncComponent } from 'vue';
                 <template v-else>X</template>
             </a>
             <nav id="mobile-nav" class="mean-nav">
-                <SubMenu class="basic-mean-menu" :open="menuOpen">
-                    <MobileMenuItem v-for="it in items" :item="it" :key="it.title"></MobileMenuItem>
+                <SubMenu class="basic-mean-menu" :open="menuOpen" @itemClicked="onMenuClicked">
+                    <MobileMenuItem v-for="it in items" :item="it" :key="it.title" @itemClicked="onMenuClicked"></MobileMenuItem>
                 </SubMenu>
             </nav>
         </div>
@@ -30,6 +30,9 @@ const menuOpen = ref<boolean>(false);
 defineProps<{ items: MenuItemType[] }>();
 function toggleMenuState() {
     menuOpen.value = !menuOpen.value; 
+}
+function onMenuClicked(item:MenuItemType) {
+    
 }
 </script>
 <style>

@@ -7,8 +7,8 @@
                         <HeaderLogo />
                     </div>
                     <div class="col-md-9 col-sm-10">
-                        <Menu :items="menuItems" />
-                        <MobileMenu :items="menuItems"></MobileMenu>
+                        <Menu :items="menuItems" @menu-clicked="onMenuClicked" />
+                        <MobileMenu :items="menuItems" @menu-clicked="onMenuClicked"></MobileMenu>
                     </div>
                 </div>
             </div>
@@ -18,10 +18,12 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import HeaderLogo from '@/views/home/components/HeaderLogo.vue';
 import Menu from './Menu.vue';
-import menus from '../Menus';
+import menus, { navMenu } from '../Menus';
 import MobileMenu from './MobileMenu.vue';
+import { MenuActionType, MenuItemType } from '../../../entity/MenuTypes';
 const menuItems = reactive(menus);
 const headerRef = ref<HTMLElement>(null as unknown as HTMLElement);
 window.addEventListener("scroll", e => {
@@ -32,6 +34,16 @@ window.addEventListener("scroll", e => {
         headerRef.value.classList.remove('sticky');
     }
 });
+
+const $router = useRouter();
+function onMenuClicked(menu:MenuItemType) {
+  return navMenu(menu, $router);
+  if(menu.type === MenuActionType.ROUTER) {
+    $router.push({ path:menu.action });
+  } else if(menu.type === MenuActionType.LINK) {
+    window.open(menu.action);
+  }
+}
 </script>
 
 <style lang="less">

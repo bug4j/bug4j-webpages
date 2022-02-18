@@ -18,7 +18,7 @@
 						<div class="portfolio-thumb">
 							<img :src="'/images/home/m-project1.jpg'" alt="">
 							<div class="view-icon">
-								<a class="popup-link" :href="'/images/home/m-project1.jpg'"><span class="icon-focus"></span></a>
+								<a class="popup-link" href="/images/home/m-project1.jpg"><span class="icon-focus"></span></a>
 							</div>
 						</div>
 						<div class="portfolio-caption text-left">
@@ -177,7 +177,6 @@
 	import Isotope from 'isotope-layout';
 	import imagesLoaded from 'imagesloaded'
 	import { ref, onMounted } from 'vue';
-	import AreaTitle from './AreaTitle.vue';
 	const grid = ref<HTMLElement>(null as unknown as HTMLElement);
 	let isoGrid:Isotope = null as unknown as Isotope;
 	function filterGrid(key:string) {

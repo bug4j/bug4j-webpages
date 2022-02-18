@@ -3,11 +3,12 @@ export interface MenuItemType {
     type?: MenuActionType
     children?: MenuItemType[]
     icon?:string 
-    action: string
+    action: string,
+    parent?: MenuItemType | null
 }
 
 export enum MenuActionType {
     LINK,
     ROUTER,
-    WINDOW,
+    HASH
 }

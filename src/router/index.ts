@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeIndex from '@/views/home/HomeIndex.vue';
 import BlogHome from '@/views/blog/';
 import { routes as blogRoutes } from '@/views/blog/router';
+import { routes as HomeRoutes } from '@/views/home/router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,7 +10,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeIndex
+      component: HomeIndex,
+      children: HomeRoutes
     },
     {
       path: '/blog',
